@@ -1,49 +1,46 @@
 import type { NextPage } from 'next'
 import { CarListView } from '../components/carListView'
 import HomeFilterContents from '../components/HomeFilterContents'
-import HomeImageSlider from '../components/HomeImageSlider'
 import Layout from '../components/Layouts'
+import { carList } from '../utils/data'
 import Link from "next/link"
-import { CarMake } from '../utils/types'
-import { fetchPopularMakes } from '../utils/network'
-import { CarMakeCard } from '../components/carMakeCard'
+import { fetchAllVehicles } from '../utils/network'
+import { Car } from '../utils/types'
 
 
-const Home: NextPage<{makeList: CarMake[]}> = ({makeList}) => {
+const AllProducts: NextPage<{carList: Car[]}> = ({carList}) => {
   return (
    <Layout>
-     <HomeImageSlider />
      <div className="headingContent">
-       <h1>Our New Products</h1>
+       <h1>All Products</h1>
      </div>
      <br />
      <div className="homeContent maxWidth1200">
        <div className="productContentContainer">
-        <div className="productContent">
+        <div className="productContentList">
           {
-            makeList.map((make, index) => <CarMakeCard carMake={make} key={index} />)
+            carList.map((car, index) => <CarListView car={car} key={index} />)
           }
         </div>
-        <Link href="/all-products">
-          <a className="viewAll">View All Vehicles</a>
+        <Link href="#">
+          <a className="viewAll">Load More</a>
         </Link>
        </div>
        <div className="filterContents">
         <HomeFilterContents />
        </div>
      </div>
-     <br />
    </Layout>
   )
 }
 
 export const getServerSideProps = async () => {
-  const makeList = await fetchPopularMakes()
+  // const makeList = await fetchAllVehicles() // this returns an empty data 
   return {
     props: {
-      makeList
+      carList
     }
   }
 }
 
-export default Home
+export default AllProducts

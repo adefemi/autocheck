@@ -1,0 +1,536 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+$mainFont: 'Open Sans', sans-serif;
+$subFont: 'Lobster', cursive;
+
+$backgroundColor1: #0579c9;
+$backgroundColor2: #f8f9fa;
+$accentColor: #f45c5c;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: $mainFont;
+  font-size: 14px;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.maxWidth1200{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.layout{
+  width: 100%;
+  overflow-x: hidden;
+
+  .subHead{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: $backgroundColor1;
+    height: 45px;
+    padding: 0 20px;
+
+    *{
+      color: white
+    }
+  }
+
+  .rightSection{
+      
+    a{
+      margin-right: 40px;
+      padding-right: 40px;
+      border-right: 1px solid white;
+      
+      svg{
+        margin-right: 10px;
+      }
+
+      &:last-child{
+        border-right: none;
+      }
+    }
+    
+  }
+
+  .mainHead{
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .brand{
+      font-size: 40px;
+      font-weight: bold;
+      color: $accentColor;
+      font-family: $subFont;
+      flex: 2;
+      @media screen and (max-width: 800px) {
+        text-align: center;
+      }
+    }
+    
+    .rightSection{
+      flex: 5;
+    }
+  }
+  
+  .menuHead{
+    background-color: $backgroundColor2;
+    padding: 0 20px;
+    .maxWidth1200{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 70px;
+
+      
+
+      select{
+        height: 50px;
+        border-radius: 0;
+        min-width: 250px;
+        border: 1px solid darken(white, 10%);
+        background-color: transparent;
+        padding: 0 10px;
+      }
+
+      .rightSection{
+        @media screen and (max-width: 800px) {
+          width: 100%;
+          max-width: 300px;
+          margin: 0 auto;
+          display: flex;
+          justify-content: space-between;
+        }
+        a{
+          margin-right: 40px;
+          padding-right: 0;
+          border-right: none;
+
+          @media screen and (max-width: 800px) {
+            &:last-child{
+              margin-right: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.searchForm{
+  width: 100%;
+  display: flex;
+  height: 50px;
+
+  input{
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    border: 1px solid #ccc;
+    outline: none;
+    margin-right: 10px;
+  }
+
+  button{
+    height: 100%;
+    border: none;
+    padding: 0 2rem;
+    background-color: $accentColor;
+    color: white;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+  }
+}
+
+.slider{
+  width: 100%;
+  height: 80vh;
+  background-color: $backgroundColor2;
+
+  @media screen and (max-width: 800px) {
+    height: 50vh;
+  }
+}
+
+.sliderContainer{
+  width: 100%;
+  height: 100px;
+  background-color: $backgroundColor2;
+}
+
+.sliderContent{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.headingContent{
+  text-align: center;
+  margin-top: 40px;
+  color: $backgroundColor1
+}
+
+.homeFilterContents{
+  background-color: $backgroundColor2;
+}
+
+.homeContent{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+
+  .productContentContainer{
+    flex: 5;
+    margin-right: 3rem;
+
+    @media screen and (max-width: 800px) {
+      margin-right: 0;
+      margin-bottom: 20px;
+    }
+
+    .viewAll{
+      margin-top: 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      color: white;
+      cursor: pointer;
+      width: 100%;
+      background-color: lighten($accentColor, 10%);
+      height: 40px;
+      transition: .5s ease;
+
+      &:hover{
+        background-color: darken($accentColor, 10%);
+      }
+    }
+  }
+
+  .productContent{
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 1rem;
+  }
+
+  .filterContents{
+    @media screen and (max-width: 800px) {
+      width: 100%;
+    }
+  }
+
+  .homeFilterContents{
+    flex: 2;
+    padding: 20px;
+
+    .section{
+      padding-bottom: 10px;
+      border-bottom: 1px solid darken(white, 10%);
+      margin-bottom: 20px;
+
+      .sectionItem{
+        margin-bottom: 10px;
+      }
+
+      &:last-child{
+        border-bottom: none;
+      }
+    }
+
+    .title{
+      font-size: 18px;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: $accentColor;
+    }
+    
+  }
+}
+
+.carListView{
+  display: flex;
+  border-bottom: 1px solid darken(white, 10%);
+  padding: 15px;
+  width: 100%;
+
+  &:last-child{
+    border-bottom: none;
+  }
+
+  .imageContainer{
+    position: relative;
+    flex: 1;
+    @media screen and (max-width: 800px) {
+      flex: 2;
+    }
+  }
+
+  .carContents{
+    flex: 3;
+    display: flex;
+    justify-content: space-between;
+    margin-left: 20px;
+
+    @media screen and (max-width: 800px) {
+      margin-left: 10px;
+      flex: 4;
+    }
+
+    .info{
+      flex: 2;
+
+      h2{
+        margin: 0;
+        margin-bottom: 10px;
+        font-size: 20px;
+      }
+
+      @media screen and (max-width: 800px) {
+        flex: 3;
+
+        h2{
+          font-size: 12px;
+          margin-bottom: 5px;
+        }
+      }
+    }
+
+    .controls{
+      flex: 1;
+      border-left: 1px solid darken(white, 10%);
+      padding-left: 20px;
+
+      @media screen and (max-width: 800px) {
+        padding-left: 10px;
+      }
+
+      button{
+        width: 100%;
+        height: 40px;
+        border: none;
+        background-color: $backgroundColor1;
+        color: white;
+        cursor: pointer;
+
+        @media screen and (max-width: 800px) {
+          height: 20px;
+          font-size: 11px;
+        }
+      }
+
+      .priceView{
+        width: 100%;
+        height: 40px;
+        border: none;
+        background-color: darken($backgroundColor2, 10%);
+        display: flex;
+        align-items: center;
+        justify-content: center;font-size: 18px;
+        margin-top: 10px;
+        padding: 0 1rem;
+
+        @media screen and (max-width: 800px) {
+          height: 20px;
+          font-size: 11px;
+        }
+      }
+    }
+  }
+
+  .infoBulletContainer{
+    display: flex;
+
+    .carBulletItem{
+      margin-right: 10px;
+      padding: 5px 10px;
+      background-color: darken($backgroundColor2, 10%);
+      font-size: 12px;
+      font-weight: 600;
+      margin-bottom: 10px;
+
+      @media screen and (max-width: 800px) {
+        padding: 2px 5px;
+        font-size: 9px;
+        margin-right: 5px;
+      }
+    }
+  }
+}
+
+.infoItemContainer{
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  .carInfoItem{
+    margin-bottom: 10px;
+    @media screen and (max-width: 800px) {
+      font-size: 10px;
+      margin-bottom: 5px;
+    }
+    .title{
+      font-size: 12px;
+      font-weight: 600;
+      color: darken(white, 30%);
+      text-transform: capitalize;
+
+      @media screen and (max-width: 800px) {
+        font-size: 9px;
+      }
+    }
+  }
+
+}
+
+.carMakeCard{
+  display: flex;
+  height: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+
+  .imageContainer{
+    position: relative;
+    width: 50%;
+    height: 50%;
+  }
+
+  .title{
+    font-size: 18px;
+    font-weight: 600;
+    color: $accentColor;
+    margin-top: 20px;
+  }
+}
+
+.breadcrumb{
+  display: flex;
+  font-size: 12px;
+
+  .item{
+    margin-right: 20px;
+    padding-right: 20px;
+    border-right: 1px solid darken(white, 10%);
+    cursor: pointer;
+
+    &:last-child{
+      border-right: none;
+    }
+  }
+
+  .activeProduct{
+    color: darken(white, 40%);
+    cursor: default;
+  }
+}
+
+.activeProductContainer{
+  display: grid;
+  grid-template-columns:repeat(auto-fit, minmax(300px, 1fr));
+  grid-gap: 2rem;
+  margin-top: 20px;
+
+  .productImage{
+    position: relative;
+    width: 100%;
+    height: 400px;
+    margin-bottom: 30px;
+    background-color: $backgroundColor2;
+
+    @media screen and (max-width: 800px) {
+      height: 300px;
+    }
+
+    video{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .productMedias{
+    display: flex;
+    height: 100px;
+    overflow: auto;
+    position: relative;
+
+    .slick-slider {
+      height: 100%;
+      width: 100%;
+    }
+  }
+
+  .productDetails{
+    .section{
+      padding: 20px;
+      box-shadow: 0 0 10px 0 rgba(0,0,0,0.1);
+      margin-bottom: 20px;
+
+      h2{
+        margin: 0;
+      }
+
+      .price{
+        font-size: 20px;
+        font-weight: bold;
+        color: $backgroundColor1;
+      }
+
+      button{
+        width: 100%;
+        height: 40px;
+        border: none;
+        margin-top: 20px;
+        color: white;
+        background-color: $backgroundColor1;
+      }
+
+      .headerTitle{
+        padding-bottom: 10px;
+        font-size: 16px;
+        border-bottom: 1px solid darken(white, 10%);
+      }
+
+      .detailItem{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 0;
+
+        .title{
+          font-size: 14px;
+          font-weight: 600;
+          color: darken(white, 30%);
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .mobileView{
+    display: none;
+  }
+}
